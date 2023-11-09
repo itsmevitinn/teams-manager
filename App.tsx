@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { Groups } from "@screens/Groups";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/theme";
@@ -8,6 +7,7 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 import { Loading } from "@components/Loading";
+import { StatusBar } from "react-native";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -17,6 +17,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       {fontsLoaded ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
